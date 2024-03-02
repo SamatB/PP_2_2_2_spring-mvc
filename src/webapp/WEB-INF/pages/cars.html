@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Машины</title>
+    <style>
+        body {
+            background: url("https://www.pixel4k.com/bmw-f82-dark-side-car-digital-art-91965.html") no-repeat;
+            background-size: cover;
+        }
+        .table{
+            color: black;
+            width: 40%;
+            border-color: black;
+            margin-bottom: 20px;
+
+        }
+        .table thead th {
+            font-weight: bold;
+            text-align: left;
+            border: none;
+            padding: 10px 15px;
+            background: #d8d8d8;
+            font-size: 14px;
+        }
+        .table thead tr th:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+        .table thead tr th:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+        .table tbody td {
+            text-align: left;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            vertical-align: top;
+        }
+        .table tbody tr:nth-child(even){
+            background: cadetblue;
+        }
+        .table tbody tr:nth-child(odd){
+            background: gray;
+        }
+        .table tbody tr td:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+        .table tbody tr td:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Model</th>
+        <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <th scope="row" th:text="${car.getId()}"></th>
+        <td th:text="${car.getModel()}"></td>
+        <td th:text="${car.getPrice()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
